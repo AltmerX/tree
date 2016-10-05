@@ -25,9 +25,12 @@ def tree(path,level,indent):
                 print(temp+entry)
                 indent=indent+"    "
             else:
+                temp=indent
                 if count==0:
                     temp=indent+"├── "
-                print(temp+entry)
+                    print(temp+entry)
+                else:
+                    print(indent+"├── "+entry)
         else:
             totalDirCount+=1
             if count==len(content)-1:
@@ -35,8 +38,8 @@ def tree(path,level,indent):
                 print(temp+entry)
                 indent=indent+"    "
             else:
-                indent+="├── "
-                print(indent+entry)
+                indent+="│   "
+                print(indent+"├── "+entry)
             tree(path+"/"+entry,level+1,indent)
         count=count+1
         
