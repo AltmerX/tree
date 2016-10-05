@@ -3,6 +3,9 @@ import subprocess
 import sys
 import os
 
+global totalDirCount
+global totalFileCount
+
 def display(path):
     print(".")
     tree(path,0)
@@ -21,8 +24,10 @@ def tree(path,level):
             indent=indent+"├── "
         if os.path.isfile(path+"/"+entry):
             print(indent+entry)
+            totalDirCount+=1
         else:            
             print(indent+entry)
+            totalFileCount+=1
             tree(path+"/"+entry,level+1)
         count=count+1
         
