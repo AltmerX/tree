@@ -9,7 +9,7 @@ def display(path):
     global totalDirCount
     global totalFileCount
     print(".")
-    tree(path,0)
+    tree(path,1)
     print(totalDirCount," directories, ",totalFileCount," files")
 
 def tree(path,level):
@@ -27,10 +27,10 @@ def tree(path,level):
             indent=indent+"├── "
         if os.path.isfile(path+"/"+entry):
             print(indent+entry)
-            totalDirCount+=1
+            totalFileCount+=1
         else:            
             print(indent+entry)
-            totalFileCount+=1
+            totalDirCount+=1
             tree(path+"/"+entry,level+1)
         count=count+1
         
