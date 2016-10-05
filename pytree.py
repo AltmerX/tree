@@ -17,7 +17,7 @@ def tree(path,level,indent):
     global totalFileCount
     content=sorted(os.listdir(path))
     count=0
-   for entry in content:
+    for entry in content:
         if os.path.isfile(path+"/"+entry):
             totalFileCount+=1
             if count==len(content)-1:
