@@ -7,10 +7,9 @@ import os
 
 def display(path):
     global totalDirCount
-    global totalFileCount  
+    global totalFileCount
+    print(path)
     tree(path,1,"")
-    if totalDirCount!=0 or totalFileCount!=0:
-        print(".")
     print("\n",totalDirCount," directories, ",totalFileCount," files",sep='')
 
 def tree(path,level,indent):
