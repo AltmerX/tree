@@ -10,7 +10,7 @@ def display(path):
     global totalFileCount
     print(".")
     tree(path,1,"")
-    print(totalDirCount," directories, ",totalFileCount," files")
+    print("\n",totalDirCount," directories,",totalFileCount," files")
 
 def tree(path,level,indent):
     global totalDirCount
