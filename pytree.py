@@ -2,6 +2,12 @@
 import subprocess
 import sys
 import os
+
+def display(path):
+    print(".\n")
+    tree(path,0)
+    print("\n",totalDirCount," directories, ",totalFileCount," files\n")
+
 def tree(path,level):
     content=os.listdir(path)
     count=0
@@ -29,5 +35,5 @@ if __name__ == '__main__':
     totalFileCount=0
     if len(sys.argv)==2:
         path=sys.argv[1]
-    tree(path,0)
-    print(totalDirCount," directories, ",totalFileCount," files")
+    display(path)
+    
