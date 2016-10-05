@@ -3,15 +3,18 @@ import subprocess
 import sys
 import os
 
-global totalDirCount
-global totalFileCount
+
 
 def display(path):
+    global totalDirCount
+    global totalFileCount
     print(".")
     tree(path,0)
     print(totalDirCount," directories, ",totalFileCount," files")
 
 def tree(path,level):
+    global totalDirCount
+    global totalFileCount
     content=sorted(os.listdir(path))
     count=0
     for entry in content:
