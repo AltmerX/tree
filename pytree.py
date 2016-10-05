@@ -11,7 +11,7 @@ def display(path):
     tree(path, 1, "")
     print("\n", totalDirCount, " directories, ", totalFileCount, " files", sep='')
 
-    
+
 def tree(path, level, indent):
     global totalDirCount
     global totalFileCount
@@ -46,4 +46,3 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         path = sys.argv[1]
     display(path)
-    
