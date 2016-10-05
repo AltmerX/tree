@@ -4,30 +4,28 @@ import sys
 import os
 
 def display(path):
-    print(".\n")
+    print(".")
     tree(path,0)
-    print("\n",totalDirCount," directories, ",totalFileCount," files\n")
+    print(totalDirCount," directories, ",totalFileCount," files")
 
 def tree(path,level):
-    content=os.listdir(path)
+    content=sorted(os.listdir(path))
     count=0
-    global totalDirCount 
-    global totalFileCount     
     for entry in content:
-        if os.path.isfile(path+"/"+entry):
-            totalFileCount+=1
-            output=""
-            for i in range(level-1):
-                output=output+"│   "
-            if count==len(content)-1:
-                output=output+"└── "
-            else:
-                output=output+"├── "
-            print(output+entry)
+        indent=""
+        for i in range(level-1):
+            indent=indent+"│   "
+        if count==len(content)-1:
+            indent=indent+"└── "
         else:
-            totalDirCount+=1
+            indent=indent+"├── "
+        if os.path.isfile(path+"/"+entry):
+            print(indent+entry)
+        else:            
+            print(indent+entry)
             tree(path+"/"+entry,level+1)
-        count=count+1        
+        count=count+1
+        
 if __name__ == '__main__':
     # just for demo
     path="."
